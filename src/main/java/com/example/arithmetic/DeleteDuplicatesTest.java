@@ -28,7 +28,7 @@ public class DeleteDuplicatesTest {
         node3.next = node4;
         node4.next = node5;
         // 11233->123
-        ListNode listNode = deleteDuplicates(node1);
+        ListNode listNode = deleteDuplicates2(node1);
         System.out.println(listNode);
     }
 
@@ -73,16 +73,16 @@ public class DeleteDuplicatesTest {
     }
 }
 
-class ListNode {
-    int val;
-    ListNode next;
-
-    public ListNode(int val) {
-        this.val = val;
-    }
-
-    public ListNode(int val, ListNode next) {
-        this.val = val;
-        this.next = next;
-    }
-}
+//class ListNode {
+//    int val;
+//    ListNode next;
+//
+//    public ListNode(int val) {
+//        this.val = val;
+//    }
+//
+//    public ListNode(int val, ListNode next) {
+//        this.val = val;
+//        this.next = next;
+//    }
+//}

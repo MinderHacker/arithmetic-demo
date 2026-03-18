@@ -15,14 +15,31 @@ public class CircleListTest {
         node1.next = node2;
         node2.next = node3;
         node3.next = node4;
-        node4.next = node2;
+        node4.next = node2; // 3 -> 2 -> 0 -> -4 -> 2 (这里4个节点相交)
 
-        boolean isCircle = isCircle(node1);
-        System.out.println(isCircle);
+//        boolean isCircle = isCircle(node1);
+        ListNode listNode = reverseList(node1);
+//        System.out.println(isCircle);
+        System.out.println(listNode);
+    }
+
+    // 反转链表
+    public static ListNode reverseList(ListNode head) {
+        ListNode pre = null;
+        ListNode cur = head;
+        while (cur != null) {
+            ListNode next = cur.next;
+            cur.next= pre;//指针方向改变
+            pre=cur;
+            cur=next;
+            // pre,cur,next不断往后推进
+        }
+        return pre;
     }
 
     /**
      * 快慢指针
+     *
      * @param head
      * @return
      */
@@ -32,7 +49,7 @@ public class CircleListTest {
         while (fast != null && fast.next != null) {
             slow = slow.next;
             fast = fast.next.next;
-            if (fast==slow) {
+            if (fast == slow) {
                 return true;
             }
         }

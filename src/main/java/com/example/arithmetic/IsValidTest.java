@@ -28,11 +28,9 @@ public class IsValidTest {
 //       String s = "(]";
 //        String s = "{[]}";
         boolean isValid = isValid(s);
-        Assert.assertFalse(isValid);
+        Assert.assertTrue(isValid);
     }
 
-
-    //  ({[]})
     private static boolean isValid(String s) {
         Stack stack = new Stack<Character>();
 
@@ -40,7 +38,7 @@ public class IsValidTest {
             if (c == '(') stack.push(')');
             else if (c == '[') stack.push(']');
             else if (c == '{') stack.push('}');
-            else if (stack.empty() || c != stack.pop()) return false;// stack.empty(),s=null
+            else if (stack.empty() || c != stack.pop()) return false;
         }
         return stack.empty();
     }
